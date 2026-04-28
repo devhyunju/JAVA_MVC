@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+		<style>
+	        .gallery {
+	            display: flex;
+	            flex-wrap: wrap;
+	            justify-content: space-around;
+	        }
+	        .gallery img {
+	            width: 200px;
+	            height: 200px;
+	            margin: 10px;
+	            object-fit: cover;
+	        }
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>FILE LIST</h1>
+			<h6>*이미지를 클릭하면 다운로드가 됩니다.</h6>
+		</div>
+		<hr>
+		<br>
+		<div class="gallery">
+			<c:forEach var="file" items="${applicationScope.fileMap }">
+		        <a href="<c:url value="/file/download?fileName=${file.key}"/>">
+		        	<img src="<c:url value="/resources/images/${file.key}"/>">
+		        </a>
+			</c:forEach>
+		</div>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>

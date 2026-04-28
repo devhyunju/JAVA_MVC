@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+	</head>
+	<body>
+		<div>
+			<h1>FILE FORM</h1>
+		</div>
+		<hr>
+		<div>
+			<form id="frm1">
+				<input type="file" name="uploadFile"><br>
+				<input type="file" name="uploadFile"><br>
+				<input type="file" name="uploadFile"><br>
+				<input id="btnUpload" type="button" value="업로드"><br>
+			</form>
+		</div>
+		<script>
+			document.getElementById('btnUpload').addEventListener('click', function(){
+				const uploadFiles = document.getElementsByName("uploadFile");
+				let count = 0;
+				for ( let i = 0 ; i < uploadFiles.length ; i++ ) {
+				    if ( 0 !== uploadFiles[i].files.length ) {
+				    	count++;
+				    }
+				}
+				if ( 0 == count ) {
+					alert('파일을 선택해주세요.');
+					return;
+				}
+				if ( confirm("파일을 업로드합니다.\n진행할까요?") ) {
+					let frm1 = document.getElementById('frm1');
+					frm1.action = '<c:url value="/file/upload"/>';
+					frm1.method = 'post';
+					frm1.enctype = 'multipart/form-data'
+					frm1.submit();
+				}
+			});
+		</script>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>

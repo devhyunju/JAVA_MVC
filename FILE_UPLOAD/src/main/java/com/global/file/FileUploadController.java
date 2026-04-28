@@ -1,0 +1,64 @@
+package com.global.file;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Properties;
+import java.util.UUID;
+
+import org.apache.commons.fileupload2.core.DiskFileItemFactory;
+import org.apache.commons.fileupload2.core.FileItem;
+import org.apache.commons.fileupload2.jakarta.servlet6.JakartaServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/file/upload")
+public class FileUploadController extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("FileUploadController.doPost");
+		HashMap<String, String> fileMap = (HashMap<String, String>)req.getServletContext().getAttribute("fileMap");
+		if ( JakartaServletFileUpload.isMultipartContent(req) ) {
+            DiskFileItemFactory factory = DiskFileItemFactory.builder().get();
+            JakartaServletFileUpload upload = new JakartaServletFileUpload(factory);
+            upload.setFileSizeMax(1024*1024);
+            upload.setSizeMax(1024*1024);
+            String uploadPath = ((Properties)req.getServletContext().getAttribute("appConfig")).getProperty("file.upload.path");
+            File uploadDir = new File(uploadPath);
+            if ( !uploadDir.exists() ) {
+                uploadDir.mkdir();
+            }
+            try {
+                List<FileItem> formItems = upload.parseRequest(req);
+                if ( formItems != null && formItems.size() > 0 ) {
+                    for ( FileItem item : formItems ) {
+                        if ( !item.isFormField() ) {
+                        	if ( null == item.getName() || "".equals(item.getName()) ) {
+                        		continue;
+                        	}
+                        	String newFileName = UUID.randomUUID().toString() + FilenameUtils.getExtension(item.getName());
+                            item.write(Path.of(uploadPath, new File(newFileName).getName()));
+                            fileMap.put(newFileName, item.getName());
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+               System.out.println("There was an error: " + ex.getMessage());
+            }
+        }
+		req.getServletContext().setAttribute("fileMap", fileMap);
+		resp.sendRedirect(req.getContextPath());
+	}
+	
+}
