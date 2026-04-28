@@ -1,0 +1,23 @@
+package com.global.file;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/file/download")
+public class FileDownloadController extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@SuppressWarnings({ "unchecked" })
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("FileDownloadController.doGet");
+		req.setCharacterEncoding("utf-8");
+		resp.setContentType("application/octet-stream;charset=utf-8" );
+		HashMap<String, String> fileMap = (HashMap<String, String>)req.getServletContext().getAttribute("fileMap")
+	}
+}

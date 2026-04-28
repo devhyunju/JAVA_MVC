@@ -1,0 +1,19 @@
+package com.global.json;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import tools.jackson.databind.ObjectMapper;
+
+
+
+public class Main {
+	public static void main(String[] args) {
+		Map<String, Object> header = new HashMap<>();
+		header.put("alg", "HS256");
+		header.put("typ", "JWT");
+		ObjectMapper mapper = new ObjectMapper();
+		String headerJson = mapper.writeValueAsString(header);
+		System.out.println(headerJson);
+	}
+}

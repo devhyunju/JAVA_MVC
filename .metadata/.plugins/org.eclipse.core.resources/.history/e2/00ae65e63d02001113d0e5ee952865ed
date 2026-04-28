@@ -1,0 +1,9 @@
+package com.global.json;
+
+import tools.jackson.databind.ObjectMapper;
+
+
+
+public class Main {
+	
+}

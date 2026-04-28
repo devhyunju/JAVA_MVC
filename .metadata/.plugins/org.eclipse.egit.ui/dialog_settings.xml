@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="EGit.KnownHosts">
+		<item value="bitbucket.org"/>
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/globaljavateacher/AJAX_BACK.git"/>
+		<item value="https://github.com/globaljavateacher/AJAX_FRONT.git"/>
+		<item value="https://github.com/globaljavateacher/AJAX.git"/>
+		<item value="https://github.com/globaljavateacher/NEW_JWT.git"/>
+		<item value="https://github.com/globaljavateacher/JWT.git"/>
+		<item value="https://github.com/globaljavateacher/COOKIE_SESSION.git"/>
+		<item value="https://github.com/globaljavateacher/COOKIE_HTTPS.git"/>
+		<item value="https://github.com/globaljavateacher/FILE_UPLOAD.git"/>
+		<item value="https://github.com/globaljavateacher/MUSIC_MVC.git"/>
+		<item value="https://github.com/globaljavateacher/BookMarket.git"/>
+	</list>
+</section>

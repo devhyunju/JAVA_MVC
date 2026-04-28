@@ -1,0 +1,9 @@
+package com.global.file;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+@WebServlet("/file/form")
+public class FileFormController extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L; 
+}

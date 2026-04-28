@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module JSON {
+	requires tools.jackson.databind;
+}

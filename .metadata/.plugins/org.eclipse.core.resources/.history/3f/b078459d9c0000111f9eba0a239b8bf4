@@ -1,0 +1,9 @@
+package com.global.mvc.controller;
+
+import com.global.mvc.service.AService;
+
+public class AController {
+	public static void a() {
+		String uuid = AService.uuid();
+	}
+}

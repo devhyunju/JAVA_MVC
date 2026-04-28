@@ -1,0 +1,157 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX fetch3</title>
+		<style>
+		    #autocomplete-list {
+		        position: absolute;
+		        border: 1px solid #d4d4d4;
+		        border-top: none;
+		        z-index: 99;
+		        top: 100%;
+		        left: 0;
+		        right: 0;
+		        max-height: 400px;
+		        overflow-y: auto;
+		        background-color: white;
+		    }
+		    #autocomplete-list div {
+		        padding: 10px;
+		        cursor: pointer;
+		        background-color: #fff;
+		        border-bottom: 1px solid #d4d4d4;
+		    }
+		    #autocomplete-list div:hover {
+		        background-color: #e9e9e9;
+		    }
+		    .autocomplete-container {
+		        position: relative;
+		        display: flex;
+		        width: 300px;
+		        align-items: center;
+		    }
+		    .song-info {
+		        font-size: 0.9em;
+		        color: #666;
+		    }
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>AJAX fetch3</h1>
+		</div>
+		<div>
+		    <div class="autocomplete-container">
+		        <input type="text" id="artist" placeholder="노래 제목 입력">
+		        <div id="autocomplete-list"></div>
+		    </div>
+		    <input type="button" id="btnSearch" value="검색">
+		</div>
+		<div id="result"></div>
+		<script>
+		    let count = 1;
+		    let debounceTimer;
+		    const displaySong = (song) => {
+		        const html = `
+		            <h3>${count++}. ${song.trackName}</h3>
+		            <div>
+		                <img src="${song.artworkUrl100}" style="display: inline-block">
+		                <audio controls src="${song.previewUrl}"></audio>
+		            </div>
+		            <p>아티스트: ${song.artistName}</p>
+		            <hr>
+		        `;
+		        document.getElementById('result').insertAdjacentHTML('afterbegin', html);
+		    };
+		    const searchMusic = async () => {
+		        const searchTerm = document.getElementById('artist').value.trim();
+		        if (!searchTerm) return;
+		        const params = new URLSearchParams({
+		            term: searchTerm,
+		            country: 'KR',
+		            media: 'music',
+		            entity: 'song',
+		            limit: 1
+		        });
+		        try {
+		            const response = await fetch(`https://itunes.apple.com/search?${params}`);
+		            const data = await response.json();
+		            console.log(data);
+		            
+		            data.results.forEach(song => {
+		                displaySong(song);
+		            });
+		        } catch (error) {
+		            console.error(error);
+		        } finally {
+		            document.getElementById('artist').value = '';
+		            closeAutocomplete();
+		        }
+		    };
+		    const getAutocompleteSuggestions = async (query) => {
+		        if (!query) {
+		            closeAutocomplete();
+		            return;
+		        }
+		        const params = new URLSearchParams({
+		            term: query,
+		            country: 'KR',
+		            media: 'music',
+		            entity: 'song',
+		            limit: 20
+		        });
+		        try {
+		            const response = await fetch(`https://itunes.apple.com/search?${params}`);
+		            const data = await response.json();
+		            
+		            displayAutocomplete(data.results);
+		        } catch (error) {
+		            console.error(error);
+		        }
+		    };
+		    const displayAutocomplete = (songs) => {
+		        const autocompleteList = document.getElementById('autocomplete-list');
+		        autocompleteList.innerHTML = '';
+		        if (songs.length === 0) {
+		            closeAutocomplete();
+		            return;
+		        }
+		        songs.forEach(song => {
+		            const div = document.createElement('div');
+		            div.innerHTML = `
+		                <strong>${song.trackName}</strong>
+		                <div class="song-info">${song.artistName}</div>
+		            `;
+		            div.addEventListener('click', () => {
+		                displaySong(song);
+		                document.getElementById('artist').value = '';
+		                closeAutocomplete();
+		            });
+		            autocompleteList.appendChild(div);
+		        });
+		    };
+		    const closeAutocomplete = () => {
+		        document.getElementById('autocomplete-list').innerHTML = '';
+		    };
+		    document.getElementById('artist').addEventListener('input', (e) => {
+		        clearTimeout(debounceTimer);
+		        debounceTimer = setTimeout(() => {
+		            getAutocompleteSuggestions(e.target.value.trim());
+		        }, 300);
+		    });
+		    document.getElementById('btnSearch').addEventListener('click', searchMusic);
+		    document.getElementById('artist').addEventListener('keypress', (e) => {
+		        if (e.key === 'Enter') {
+		            searchMusic();
+		        }
+		    });
+		    document.addEventListener('click', (e) => {
+		        if (!e.target.closest('.autocomplete-container')) {
+		            closeAutocomplete();
+		        }
+		    });
+		</script>
+	</body>
+</html>

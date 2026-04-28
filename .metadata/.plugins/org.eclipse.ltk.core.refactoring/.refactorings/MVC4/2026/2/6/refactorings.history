@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MVC4/src/main/webapp/WEB-INF/Coupon.jsp&apos; to &apos;coupon.jsp&apos;" description="Rename resource &apos;Coupon.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/Coupon.jsp" name="coupon.jsp" stamp="1769998100177" updateReferences="true"/>
+</session>

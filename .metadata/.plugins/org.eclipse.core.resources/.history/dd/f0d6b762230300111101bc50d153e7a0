@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX FRONT</title>
+	</head>
+	<body>
+		<div>
+			<h1>AJAX_FRONT2</h1>
+		</div>
+		<div>
+			<form>
+				<input type="text" id="message" placeholder="메시지"><br>
+				<input type="button" id="btnSend" value="전송">
+			</form>
+		</div>
+		<div id="result"></div>
+	</body>
+</html>

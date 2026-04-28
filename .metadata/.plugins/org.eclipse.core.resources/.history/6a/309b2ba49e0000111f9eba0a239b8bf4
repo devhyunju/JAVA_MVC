@@ -1,0 +1,9 @@
+package com.global.mvc.servlet;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
+@WebServlet(urlPatterns = "/")
+public class AServlet extends HttpServlet{
+
+}

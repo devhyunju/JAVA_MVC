@@ -1,0 +1,38 @@
+package com.global.json;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import tools.jackson.databind.ObjectMapper;
+
+public class Main2 {
+public static void main(String[] args) {
+	ObjectMapper mapper = new ObjectMapper(); 
+	List<User> list = new ArrayList<User>();
+	User user = new User("Gemini", 3, true);
+	try {
+		list.add(new User("Gemini", 3, true));
+		list.add(new User("Hong", 20, false));
+		
+		String listJson = mapper.writeValueAsString(list);
+		System.out.println(listJson);
+		
+		//객체를 보기 좋게 문자열로 보고 싶을 때 
+		String json = mapper.writeValueAsString(user);
+		System.out.println(json);
+		
+		String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
+		System.out.println(prettyJson);
+		
+		user = mapper.readValue(json, User.class);
+		
+		System.out.println("이름: " + user.getName());
+		System.out.println("나이: " + user.getAge());
+		System.out.println("개발자 여부: " + user.isDeveloper());	
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+}
+}
+}

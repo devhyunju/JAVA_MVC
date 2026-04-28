@@ -1,0 +1,20 @@
+package com.global.json;
+
+import tools.jackson.databind.ObjectMapper;
+
+public class Main2 {
+public static void main(String[] args) {
+	ObjectMapper mapper = new ObjectMapper(); 
+	User user = new User("Gemini", 3, true);
+	try {
+		//객체를 보기 좋게 문자열로 보고 싶을 때 
+		String json = mapper.writeValueAsString(user);
+		System.out.println(json);
+		
+		String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
+		System.out.println(prettyJson);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.net.http.HttpRequest"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.Filter"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="com.global.mvc.controller.BController"/>
+    <fullyQualifiedTypeName name="com.global.mvc.service.AService"/>
+    <fullyQualifiedTypeName name="com.global.mvc.controller.AController"/>
+    <fullyQualifiedTypeName name="com.global.mvc.service.BService"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.ServletContextListener"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.ServletContext"/>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.net.URLEncoder"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.ServletOutputStream"/>
+    <fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+    <fullyQualifiedTypeName name="org.apache.commons.fileupload2.core.DiskFileItemFactory"/>
+    <fullyQualifiedTypeName name="org.apache.commons.fileupload2.jakarta.servlet6.JakartaServletFileUpload"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.FileItem"/>
+    <fullyQualifiedTypeName name="java.util.UUID"/>
+    <fullyQualifiedTypeName name="java.nio.file.Path"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSessionAttributeListener"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebListener"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
+    <fullyQualifiedTypeName name="com.global.session.service.LoginService"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
+    <fullyQualifiedTypeName name="com.global.session.controller.LoginController"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="com.global.json.User"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="tools.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebFilter"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletResponse"/>
+</qualifiedTypeNameHistroy>

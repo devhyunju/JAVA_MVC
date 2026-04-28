@@ -1,0 +1,11 @@
+package com.global.file;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+@WebServlet("/file/download")
+public class FileDownloadController extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@SuppressWarnings({ "unchecked" })
+}

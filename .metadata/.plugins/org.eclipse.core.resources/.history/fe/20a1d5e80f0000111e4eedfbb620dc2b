@@ -1,0 +1,12 @@
+package com.global.mvc.controller;
+
+import com.global.mvc.service.AService;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+public class AController  {
+	public static void a(HttpServletRequest req) {
+		AService.uuid();
+		req.setAttribute("uuid", AService.uuid());
+	}
+}

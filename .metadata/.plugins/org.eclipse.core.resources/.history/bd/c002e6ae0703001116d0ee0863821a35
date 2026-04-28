@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX fetch3</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>AJAX fetch3 EDIT</h1>
+		</div>
+		<div>
+			<div class="autocomplete-container">
+				<input type="text" id="artist" placeholder="노래 제목 입력"><input type="button" id="btnSearch" value="검색">
+				<div id="autocomplete-list"></div>
+			</div>
+		</div>
+		<div id="result"></div>
+		<script>
+			let count = 1; 
+			let debounceTimer;
+			const displaySong = (song) => {
+				const html = `
+					<h3>${count++}.${song.trackName}</h3>
+					<div>
+						<img src="${song.artworkUrl100}" style="display: inline-block">
+						<audio controls src="${song.previewUrl}"></audio>
+					</div>
+					<p>아티스트: ${song.artistName}</p>
+					<hr>
+				;
+				document.getElementById('result').insertAdjacentHTML('afterbegin', html);
+			};
+		</script>
+	</body>
+			
+		   

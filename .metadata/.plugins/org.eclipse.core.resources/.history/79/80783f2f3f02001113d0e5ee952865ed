@@ -1,0 +1,19 @@
+package com.global.json;
+
+import tools.jackson.databind.ObjectMapper;
+
+public class Main2 {
+public static void main(String[] args) {
+	ObjectMapper mapper = new ObjectMapper(); 
+	User user = new User("Gemini", 3, true);
+	try {
+		String json = mapper.writeValueAsString(user);
+		System.out.println(json);
+		
+		String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
+		System.out.println(prettyJson);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}
+}

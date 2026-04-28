@@ -1,0 +1,5 @@
+package com.global.session.listener;
+
+public class LoginListener {
+
+}

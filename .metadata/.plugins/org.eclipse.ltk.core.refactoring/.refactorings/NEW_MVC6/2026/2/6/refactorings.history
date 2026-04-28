@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.global.mvc.servive&apos; to &apos;com.global.mvc.service&apos;&#x0D;&#x0A;- Original project: &apos;NEW_MVC6&apos;&#x0D;&#x0A;- Original element: &apos;NEW_MVC6/src/main/java/com.global.mvc.servive&apos;&#x0D;&#x0A;- Renamed element: &apos;NEW_MVC6/src/main/java/com.global.mvc.service&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.global.mvc.servive&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.global.mvc.servive" name="com.global.mvc.service" qualified="false" references="true" stamp="1770092263935" textual="false" version="1.0"/>
+</session>

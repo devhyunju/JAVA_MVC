@@ -1,0 +1,13 @@
+package com.global.mvc.controller;
+
+import com.global.mvc.service.AService;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+public class AController {//저장하고 view가 뭔지, 어디로 포워딩할지 
+	public static String a(HttpServletRequest req) {
+		String uuid = AService.uuid();
+		req.setAttribute("uuid", uuid);
+		return "/WEB-INF/views/a.jsp";
+	}
+}
